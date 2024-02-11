@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FOHQ.Views.NewDocument.AddFireUnitPage"
+             Title="СиС тушения пожара (ЧС)">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <TableView>
+                <TableView.Root>
+                    <TableRoot>
+                        <TableSection Title="СиС тушения пожара (ЧС)">
+                            <EntryCell x:Name="txtDepartments" Label="Подразделения ПО, взаимодействующие службы"
+                                       Text="{Binding Departments}" />
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Время прибытия" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                                        <DatePicker x:Name="dateArrival" Format="dd.MM.yyyy"
+                                                    Date="{Binding ArrivalDate}" />
+                                        <TimePicker x:Name="timeArrival" Format="HH:mm"
+                                                    Time="{Binding ArrivalTime}" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Численность расчёта"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickPersonnel" Title="выберите значение"
+                                                SelectedItem="{Binding}">
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </TableSection>
+
+                        <TableSection Title="Основная задача">
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Основная задача"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickMainTask" Title="выберите значение" HorizontalOptions="FillAndExpand"
+                                                SelectedItem="{Binding MainTask}">
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Время получения" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                                        <DatePicker x:Name="dateMainTask" Format="dd.MM.yyyy"
+                                                    Date="{Binding MainTaskDate}"/>
+                                        <TimePicker x:Name="timeMainTask" Format="HH:mm"
+                                                    Time="{Binding MainTaskTime}"/>
+                                        <Button x:Name="btnSetMainTaskTime" Text="Сейчас" Clicked="BtnSetMainTaskTime_Clicked" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </TableSection>
+
+                        <TableSection Title="Боевой участок">
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Боевой участок"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickCombatArea" Title="выберите значение"
+                                                SelectedItem="{Binding CombatArea}">
+                                            <Picker.Items>
+                                                <x:String>БУ 1</x:String>
+                                                <x:String>БУ 2</x:String>
+                                                <x:String>БУ 3</x:String>
+                                                <x:String>БУ 4</x:String>
+                                                <x:String>БУ 5</x:String>
+                                            </Picker.Items>
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="СПР" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                                        <Picker x:Name="picWorkSector" Title="выберите значение"
+                                                SelectedItem="{Binding WorkSector}">
+                                            <Picker.Items>
+                                                <x:String></x:String>
+                                                <x:String>СПР 1</x:String>
+                                                <x:String>СПР 2</x:String>
+                                                <x:String>СПР 3</x:String>
+                                                <x:String>СПР 4</x:String>
+                                            </Picker.Items>
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </TableSection>
+
+                        <TableSection Title="Время">
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Время введения первого ствола" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                                        <DatePicker x:Name="dateFirstBarrel" Format="dd.MM.yyyy"
+                                                    Date="{Binding FirstBarrelDate}"/>
+                                        <TimePicker x:Name="timeFirstBarrel" Format="HH:mm"
+                                                    Time="{Binding FirstBarrelTime}" />
+                                        <Button x:Name="btnSetFirstBarrelTime" Text="Сейчас" Clicked="BtnSetFirstBarrelTime_OnClicked" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Время убытия с места пожара" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                                        <DatePicker x:Name="dateDeparture" Format="dd.MM.yyyy"
+                                                    Date="{Binding DepartureDate}"/>
+                                        <TimePicker x:Name="timeDeparture" Format="HH:mm"
+                                                    Time="{Binding DepartureTime}" />
+                                        <Button x:Name="btnSetDepartureTime" Text="Сейчас" Clicked="BtnSetDepartureTime_Clicked" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView.Root>
+            </TableView>
+
+            <StackLayout Orientation="Horizontal" >
+                <Button x:Name="btnCancel"
+                        Text="Отмена" BackgroundColor="DarkRed" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                        Clicked="BtnCancel_Clicked" />
+                <Button x:Name="btnSave"
+                        Text="Сохранить" BackgroundColor="Green" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                        Clicked="BtnSave_Clicked" />
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

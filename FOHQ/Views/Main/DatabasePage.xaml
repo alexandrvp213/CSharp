@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FOHQ.Views.Main.DatabasePage"
+             Title="БАЗА ДАННЫХ">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Column="0" Grid.Row="0">
+                    <Button
+                        x:Name="btnRadioExchangeSides"
+                        WidthRequest="64" HeightRequest="64"
+                        HorizontalOptions="Center"
+                        ImageSource="folder.png" BackgroundColor="White"
+                        Clicked="BtnRadioExchangeSides_Clicked"/>
+                    <Label Text="Участники радиообмена" HorizontalTextAlignment="Center" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" Grid.Row="0">
+                    <Button
+                        x:Name="btnCombatAreasChiefs"
+                        WidthRequest="64" HeightRequest="64"
+                        HorizontalOptions="Center"
+                        ImageSource="folder.png" BackgroundColor="White"
+                        Clicked="BtnCombatAreasChiefs_Clicked"/>
+                    <Label Text="Начальники БУ (СПР)" HorizontalTextAlignment="Center" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="2" Grid.Row="0">
+                    <Button
+                        x:Name="btnMainTasks"
+                        WidthRequest="64" HeightRequest="64"
+                        HorizontalOptions="Center"
+                        ImageSource="folder.png" BackgroundColor="White"
+                        Clicked="BtnMainTasks_Clicked"/>
+                    <Label Text="Основные задачи" HorizontalTextAlignment="Center" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="1">
+                    <Button
+                        x:Name="btnTransmittedInformation"
+                        WidthRequest="64" HeightRequest="64"
+                        HorizontalOptions="Center"
+                        ImageSource="folder.png" BackgroundColor="White"
+                        Clicked="BtnTransmittedInformation_Clicked"/>
+                    <Label Text="Передаваемая информация" HorizontalTextAlignment="Center" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" Grid.Row="1">
+                    <Button
+                        x:Name="btnForcesAndMeans"
+                        WidthRequest="64" HeightRequest="64"
+                        HorizontalOptions="Center"
+                        ImageSource="folder.png" BackgroundColor="White"
+                        Clicked="BtnForcesAndMeans_Clicked"/>
+                    <Label Text="Силы и средства" HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

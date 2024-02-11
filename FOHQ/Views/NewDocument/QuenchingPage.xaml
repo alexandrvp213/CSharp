@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local1="clr-namespace:EntryDecimal"
+             x:Class="FOHQ.Views.NewDocument.QuenchingPage"
+             Title="Тушение">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" >
+                <Label Text="Форма пожара" Margin="15, 0, 0, 0"></Label>
+                <StackLayout Orientation="Horizontal" Margin="15, 0, 0, 0">
+               <StackLayout Orientation="Vertical" >
+                        <RadioButton x:Name="rbQuadrant" FontSize ="15" GroupName="FormQuenchingGroup" Content = "Четверть круга" Value="Quadrant" CheckedChanged="OnFormOfQuenchingTypeRadioButtonCheckedChanged" />
+                        <RadioButton x:Name="rbSemicircle"  FontSize ="15"  GroupName="FormQuenchingGroup" Value="Semicircle" Content="Полукруг" CheckedChanged="OnFormOfQuenchingTypeRadioButtonCheckedChanged" />
+                        <RadioButton x:Name="rbCicle"   FontSize ="15" GroupName="FormQuenchingGroup"  Value="Cicle" Content="Круг" CheckedChanged="OnFormOfQuenchingTypeRadioButtonCheckedChanged" />
+               </StackLayout>
+                    <StackLayout Orientation="Vertical" >
+                        <RadioButton x:Name="rbRectangleOneWay"  FontSize ="15"   GroupName="FormQuenchingGroup"  Value="RectangleOneWay" Content="Прямоугольник в 1 сторону" CheckedChanged="OnFormOfQuenchingTypeRadioButtonCheckedChanged" />
+                        <RadioButton x:Name="rbRectangleTwoWay"  FontSize ="15"   GroupName="FormQuenchingGroup"  Content="Прямоугольник в 2 стороны" Value="RectangleTwoWay" CheckedChanged="OnFormOfQuenchingTypeRadioButtonCheckedChanged"/>
+                        <StackLayout Orientation="Horizontal" >
+                            <RadioButton x:Name="rbRectangleTwoWayLeft"  Margin="15, 0, 0, 0" GroupName="FormQuenchingGroup" CheckedChanged="OnFormOfQuenchingTypeRadioButtonCheckedChanged">
+                            </RadioButton>
+                            <StackLayout>
+                                <Image Source="rectangle2_1.png"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                            <RadioButton x:Name="rbRectangleTwoWayRigt" GroupName="FormQuenchingGroup" CheckedChanged="OnFormOfQuenchingTypeRadioButtonCheckedChanged">
+                            </RadioButton>
+                            <StackLayout>
+                                <Image Source="rectangle2_2.png"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </StackLayout>
+                        <RadioButton x:Name="rbRectangleThirdWay" FontSize ="15"  GroupName="FormQuenchingGroup"  Content="Прямоугольник в 3 стороны" Value="RectangleThirdWay" CheckedChanged="OnFormOfQuenchingTypeRadioButtonCheckedChanged"/>
+                        <StackLayout Orientation="Horizontal" >
+                            <RadioButton x:Name="rbRectangleThirdWayLeft"  Margin="15, 0, 0, 0" GroupName="FormQuenchingGroup" CheckedChanged="OnFormOfQuenchingTypeRadioButtonCheckedChanged">
+                            </RadioButton>
+                            <StackLayout>
+                                <Image Source="rectangle3_1.png"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                            <RadioButton x:Name="rbRectangleThirdWayRight"  GroupName="FormQuenchingGroup" CheckedChanged="OnFormOfQuenchingTypeRadioButtonCheckedChanged">
+                            </RadioButton>
+                            <StackLayout>
+                                <Image Source="rectangle3_2.png"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </StackLayout>
+                        <RadioButton x:Name="rbRectangleFourWay" FontSize ="15"  GroupName="FormQuenchingGroup"  Value="RectangleFourWay" Content="Прямоугольник в 4 стороны" CheckedChanged="OnFormOfQuenchingTypeRadioButtonCheckedChanged" />
+                    </StackLayout>
+
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Margin="15, 0, 0, 0" >
+                    <Label Text="Тушение стволами" />
+                    <RadioButton  x:Name="rbHandTrunk"  FontSize ="15" Content="Ручные стволы" GroupName="TabName"
+                                      Value="HandTrunk" CheckedChanged="OnQuenchingTrunkRadioButtonCheckedChanged"/>
+                    <RadioButton  x:Name="rbWaterCannon" FontSize ="15" Content="Лафетные стволы" GroupName="TabName"
+                                      Value="WaterCannon" CheckedChanged="OnQuenchingTrunkRadioButtonCheckedChanged"/>
+                       </StackLayout>
+
+            <StackLayout Orientation="Vertical" >
+                    <Label Text="Данные" Margin="15, 0, 0, 0"/>
+                    <StackLayout Orientation="Vertical" >
+                        <StackLayout Orientation="Horizontal" >
+                     <Label Text="Путь, пройденный огнем" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50" ClearButtonVisibility="WhileEditing" Text="{Binding Path}" />
+                            <Label Text="м"  Margin="0, 0, 15, 0"   VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" >
+                        <Label Text="Ширина" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding WidthPath}" />
+                            <Label Text="м" Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                    </StackLayout>
+                </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" >
+                    <Label Text="Расчет" Margin="15, 0, 0, 0"/>
+                    <StackLayout Orientation="Horizontal" >
+                        <Label Text="Площадь пожара" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" Text="{Binding FireArea}" />
+                        <Label Text="кв.м" Margin="0, 0, 15, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" >
+                                        <Label Text="Площадь тушения:" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="По периметру" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric"  HorizontalOptions="FillAndExpand" Text="{Binding ExtinguishingAreaPerimeter}" />
+                            <Label Text="кв.м" Margin="0, 0, 15, 0"   VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" >
+                                <Label Text="По фронту" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric"  HorizontalOptions="FillAndExpand" Text="{Binding ExtinguishingAreaFront}" />
+                            <Label Text="кв.м" Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" >
+                        <Label Text="Величина в метрах:" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        <StackLayout Orientation="Horizontal" >
+                                        <Label Text="периметра" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" Text="{Binding SizeAreaPerimeter}" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" >
+                                        <Label Text="фронта" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" Text="{Binding SizeAreaFront}" />
+                        </StackLayout>
+                    </StackLayout>
+             </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="btnUpdate"
+                        Text="Расчет" BackgroundColor="Green" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                        Clicked="BtnUpdate_Clicked" />
+                    <Button x:Name="btnSave"  
+                        Text="Назад" BackgroundColor="Red" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                         Clicked="BtnCancel_Clicked"
+                         />
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

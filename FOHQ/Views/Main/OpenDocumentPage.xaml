@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FOHQ.Views.Main.OpenDocumentPage"
+             Title="ОТКРЫТЬ ДОКУМЕНТ">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <ListView x:Name="listDocuments" ItemsSource="{Binding}" HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Margin="5" FontSize="Subtitle" FontAttributes="Bold">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Документ " />
+                                            <Span Text="{Binding Id}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Margin="5">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Дата: " />
+                                            <Span Text="{Binding DocumentDate, StringFormat='{0:dd.MM.yyyy}'}" />
+                                            <Span Text=" " />
+                                            <Span Text="{Binding DocumentTime, StringFormat='{0:hh\\:mm}'}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Margin="5">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Описание: " />
+                                            <Span Text="{Binding Description}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+
+                            <ViewCell.ContextActions>
+                                <MenuItem x:Name="itemEditDocument" Clicked="ItemEditDocument_Clicked"
+                                          CommandParameter="{Binding}"
+                                          Text="Открыть" />
+                                <MenuItem x:Name="itemDeleteDocument" Clicked="ItemDeleteDocument_Clicked"
+                                          CommandParameter="{Binding}"
+                                          Text="Удалить" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

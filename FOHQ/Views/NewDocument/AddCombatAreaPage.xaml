@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FOHQ.Views.NewDocument.AddCombatAreaPage"
+             Title="Боевые участки (СПР)">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <TableView>
+                <TableView.Root>
+                    <TableRoot>
+                        <TableSection Title="Боевой участок">
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Боевой участок"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickCombatArea" Title="выберите значение"
+                                                SelectedItem="{Binding CombatAreaName}">
+                                            <Picker.Items>
+                                                <x:String>БУ 1</x:String>
+                                                <x:String>БУ 2</x:String>
+                                                <x:String>БУ 3</x:String>
+                                                <x:String>БУ 4</x:String>
+                                                <x:String>БУ 5</x:String>
+                                            </Picker.Items>
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="СПР" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                                        <Picker x:Name="picWorkSector" Title="выберите значение"
+                                                SelectedItem="{Binding WorkSector}">
+                                            <Picker.Items>
+                                                <x:String></x:String>
+                                                <x:String>СПР 1</x:String>
+                                                <x:String>СПР 2</x:String>
+                                                <x:String>СПР 3</x:String>
+                                                <x:String>СПР 4</x:String>
+                                            </Picker.Items>
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Начальник"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickChief" Title="выберите значение"
+                                                HorizontalOptions="FillAndExpand"
+                                                SelectedItem="{Binding Chief}">
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Основная задача"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickMainTask" Title="выберите значение"
+                                                HorizontalOptions="FillAndExpand"
+                                                SelectedItem="{Binding MainTask}">
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </TableSection>
+
+                        <TableSection Title="Количество">
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Л/с"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickPersonnel" Title="выберите значение" 
+                                                SelectedItem="{Binding}">
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Отделений"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickDepartments" Title="выберите значение"
+                                                SelectedItem="{Binding}">
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Звеньев ГДЗС"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickGasUnits" Title="выберите значение"
+                                                SelectedItem="{Binding}">
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </TableSection>
+
+                        <TableSection Title="Стволы">
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="РС-50" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                                        <Picker x:Name="pickBarrelsRs50" Title="выберите значение"
+                                                SelectedItem="{Binding}">
+                                        </Picker>
+                                        <Button x:Name="btnClearBarrelsRs50" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                                Clicked="BtnClearBarrelsRs50_OnClicked" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="РС-70" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                                        <Picker x:Name="pickBarrelsRs70" Title="выберите значение"
+                                                SelectedItem="{Binding}">
+                                        </Picker>
+                                        <Button x:Name="btnClearBarrelsRs70" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                                Clicked="BtnClearBarrelsRs70_OnClicked" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Стволы с регулируемым расходом" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                                        <Picker x:Name="pickBarrelsVarFlow" Title="выберите значение"
+                                                SelectedItem="{Binding}">
+                                        </Picker>
+                                        <Button x:Name="btnClearBarrelsVarFlow" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                                Clicked="BtnClearBarrelsVarFlow_OnClicked" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Л" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                                        <Picker x:Name="pickBarrelsL" Title="выберите значение"
+                                                SelectedItem="{Binding}">
+                                        </Picker>
+                                        <Button x:Name="btnClearBarrelsL" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                                Clicked="BtnClearBarrelsL_OnClicked" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="ГПС" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                                        <Picker x:Name="pickBarrelsGps" Title="выберите значение"
+                                                SelectedItem="{Binding}">
+                                        </Picker>
+                                        <Button x:Name="btnClearBarrelsGps" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                                Clicked="BtnClearBarrelsGps_OnClicked" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="СВП" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                                        <Picker x:Name="pickBarrelsSvp" Title="выберите значение"
+                                                SelectedItem="{Binding}">
+                                        </Picker>
+                                        <Button x:Name="btnClearBarrelsSvp" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                                Clicked="BtnClearBarrelsSvp_OnClicked" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="другие" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                                        <Picker x:Name="pickBarrelsOther" Title="выберите значение"
+                                                SelectedItem="{Binding}">
+                                        </Picker>
+                                        <Button x:Name="btnClearBarrelsOther" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                                Clicked="BtnClearBarrelsOther_OnClicked" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView.Root>
+            </TableView>
+
+            <StackLayout Orientation="Horizontal" >
+                <Button x:Name="btnCancel"
+                        Text="Отмена" BackgroundColor="DarkRed" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                        Clicked="BtnCancel_Clicked" />
+                <Button x:Name="btnSave"
+                        Text="Сохранить" BackgroundColor="Green" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                        Clicked="BtnSave_Clicked" />
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

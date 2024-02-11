@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  xmlns:local1="clr-namespace:EntryDecimal"
+             x:Class="FOHQ.Views.NewDocument.QuenchingSolutionPage"
+             Title="Тушение ЛВЖ (ГЖ) по раствору">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+            <Label Text="Тушение ЛВЖ (ГЖ) по раствору" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+            <StackLayout Orientation="Vertical" >
+                <StackLayout Orientation="Vertical" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Кратность ПО:"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                        <StackLayout Orientation="Horizontal"  Margin="15, 0, 0, 0">
+                            <StackLayout Orientation="Vertical" x:Name="panelMultiplicity">
+                            <RadioButton x:Name="rbLow" FontSize="15"  Value="Low" Content="низкая" CheckedChanged="OnMultiplicityTypeRadioButtonCheckedChanged" />
+                            <RadioButton x:Name="rbMedium" FontSize="15"  Value="Medium" Content="средняя" CheckedChanged="OnMultiplicityTypeRadioButtonCheckedChanged" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" x:Name="panelLVJType">
+                            <RadioButton x:Name="rbLVJ" FontSize="15" Value="LVJ" Content="ЛВЖ" CheckedChanged="OnLiquorTypeRadioButtonCheckedChanged" />
+                            <RadioButton x:Name="rbGJ"  FontSize="15" Value="GJ" Content="ГЖ" CheckedChanged="OnLiquorTypeRadioButtonCheckedChanged" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Объем цистерны"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                        <local1:MyCustomEntry x:Name="entryCisterneVolume" 
+                       Keyboard="Numeric"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       Text="{Binding CisternVolume}" />
+                    <Label Margin="0, 0, 15, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="л"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Объем ПО"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                        <local1:MyCustomEntry x:Name="entryVolumePO" 
+                       Keyboard="Numeric"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       Text="{Binding VolumePO}" />
+                        <Label  Margin="0, 0, 15, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="л"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Фактический коэффициент Кф"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                        <local1:MyCustomEntry x:Name="entryFactKoeff" 
+                       Keyboard="Numeric"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       Text="{Binding FactKoeff}" />
+                 </StackLayout>
+            </StackLayout>
+            
+            <StackLayout Orientation="Vertical" >
+                <StackLayout Orientation="Vertical" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Расчетное время тушения:"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                        <StackLayout Orientation="Vertical"  Margin="15, 0, 0, 0">
+                        <RadioButton x:Name="rb10" FontSize="15" Value="rb10" Content="10 мин" CheckedChanged="OnEstimateTimeRadioButtonCheckedChanged" />
+                        <RadioButton x:Name="rb15" FontSize="15" Value="rb15" Content="15 мин" CheckedChanged="OnEstimateTimeRadioButtonCheckedChanged" />
+                        </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Количество рукавов"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                        <local1:MyCustomEntry x:Name="entryHoseCount" 
+                       Keyboard="Numeric"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       Text="{Binding HoseCount}" />
+                        <Label  Margin="0, 0, 15, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="шт."/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Диаметр рукава"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <StackLayout Orientation="Horizontal" >
+                        <Picker x:Name="pickHoseDiameter" Title="выберите значение"
+                                                    SelectedIndexChanged="Picker_SelectedHoseDiameter">
+                        </Picker>
+                        <Button x:Name="btnClearHoseDiameter" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                 Clicked="BtnClearHoseDiameter_OnClicked" />
+                    </StackLayout>
+                    <Label VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="мм"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Объем"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                        <local1:MyCustomEntry x:Name="entryHoseVolume" 
+                       Keyboard="Numeric"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                           IsEnabled="False"
+                       Text="{Binding HoseVolume}" />
+                        <Label  Margin="0, 0, 15, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="л"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" >
+                    <StackLayout Orientation="Vertical" >
+                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Пенные стволы"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                        </Label>
+                            <StackLayout Orientation="Horizontal"  Margin="15, 0, 0, 0" >
+                            <Picker x:Name="pickFoamBarrels" Title="выберите значение"
+                                                    SelectedIndexChanged="Picker_SelectedFoamBarrels">
+                            </Picker>
+                            <Button x:Name="btnClearFoamBarrels" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                 Clicked="BtnClearFoamBarrels_OnClicked" />
+                        </StackLayout>
+                    </StackLayout>
+                    
+                    <StackLayout Orientation="Vertical" >
+                        <Label VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Расход"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                            <StackLayout Orientation="Horizontal" >
+                                <local1:MyCustomEntry x:Name="entryСonsumption" 
+                       Keyboard="Numeric"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                                       IsEnabled="False"
+                       Text="{Binding Сonsumption}" />
+                        <Label  VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="л/c"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                            </StackLayout>
+                        </StackLayout>
+
+                    <StackLayout Orientation="Vertical" >
+                        <Label VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Количество"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                            <StackLayout Orientation="Horizontal" >
+                                <local1:MyCustomEntry x:Name="entryBarrelsCount" 
+                       Keyboard="Numeric"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       Text="{Binding BarrelsCount}" />
+                                <Label  Margin="0, 0, 15, 0" VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="шт."/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                            </StackLayout>
+                        </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Кратность"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                        <local1:MyCustomEntry x:Name="entryFoamMultiplicity" 
+                       Keyboard="Numeric"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                            IsEnabled="False"
+                       Text="{Binding FoamMultiplicity}" />
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Условие: Кф"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                        <local1:MyCustomEntry x:Name="entryConditionMore" 
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       IsReadOnly="true" 
+                       Text="{Binding ConditionMore}"/>
+                        <Label  Margin="0, 0, 15, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Кв"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" >
+                <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Расчет:"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Объем раствора"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                        <local1:MyCustomEntry x:Name="entryLiquorVolume" 
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       IsReadOnly="true" 
+                       Text="{Binding LiquorVolume}"/>
+                        <Label  Margin="0, 0, 15, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="л"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Объем ВМП"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                        <local1:MyCustomEntry x:Name="entryVolumeVMP" 
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       IsReadOnly="true" 
+                       Text="{Binding VolumeVMP}"/>
+                        <Label  Margin="0, 0, 15, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="л"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Площадь тушения"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                        <local1:MyCustomEntry x:Name="entryQuenchingArea" 
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       IsReadOnly="true" 
+                       Text="{Binding QuenchingArea}"/>
+                        <Label  Margin="0, 0, 15, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="м2"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Время работы"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                        <local1:MyCustomEntry x:Name="entryWorkTime" 
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       IsReadOnly="true" 
+                       Text="{Binding WorkTime}"/>
+                        <Label Margin="0, 0, 15, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="мин"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="btnUpdate"
+                        Text="Расчет" BackgroundColor="Green" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                        Command="{Binding UpdateParamsCommand}" />
+                    <Button x:Name="btnSave"  
+                        Text="Назад" BackgroundColor="Red" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                         Clicked="BtnCancel_Clicked"
+                         />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FOHQ.Views.Database.AddEditForcesAndMeansPage"
+             Title="Численность и состав">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <TableView>
+                <TableView.Root>
+                    <TableRoot>
+                        <TableSection Title="Состав">
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Вид техники"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickEquipment" Title="выберите значение"
+                                                HorizontalOptions="FillAndExpand"
+                                                SelectedItem="{Binding }">
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <EntryCell x:Name="txtEquipment" Label="Вид техники (ввод вручную)"
+                                       Text="{Binding}" />
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Количество"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickQuantity" Title="выберите значение"
+                                                SelectedItem="{Binding}">
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </TableSection>
+
+                        <TableSection Title="Числнность личного состава">
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Числнность личного состава"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickPersonnel" Title="выберите значение"
+                                                SelectedItem="{Binding}">
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView.Root>
+            </TableView>
+
+            <StackLayout Orientation="Horizontal" >
+                <Button x:Name="btnCancel"
+                        Text="Отмена" BackgroundColor="DarkRed" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                        Clicked="BtnCancel_Clicked" />
+                <Button x:Name="btnSave"
+                        Text="Сохранить" BackgroundColor="Green" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                        Clicked="BtnSave_Clicked" />
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

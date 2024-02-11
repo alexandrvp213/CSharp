@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local1="clr-namespace:EntryDecimal"
+             x:Class="FOHQ.Views.NewDocument.RequiredConsumptionPage"
+             Title="Требуемый расход на защиту и тушение">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+            <Label Text="Требуемый расход на защиту и тушение" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+            <Label Text="Интенсивность подачи огнетушащих веществ" Margin="15, 0, 0, 0" VerticalTextAlignment="Start" />
+            <StackLayout Orientation="Horizontal" >
+                <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Выбор раздела по виду объекта"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Picker x:Name="pickByObject" Title="выберите значение"
+                                                SelectedIndexChanged="Picker_SelectedByObject">
+                </Picker>
+                <Button x:Name="btnClearByObject" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                                Clicked="BtnClearByObject_OnClicked" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" >
+                <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Выбор раздела по назначению"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <StackLayout Orientation="Horizontal" >
+                    <Picker x:Name="pickByDestination" Margin="15, 0, 0, 0" Title="выберите значение"
+                                                IsEnabled="False" SelectedIndexChanged="Picker_SelectedByDestination">
+                     </Picker>
+                    <Button x:Name="btnClearByDestination" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                    Clicked="BtnClearDestination_OnClicked" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" >
+                <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Показатель"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                    <local1:MyCustomEntry x:Name="IndicatorByDestination" 
+                       Keyboard="Numeric"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       IsReadOnly="True" Text="{Binding Indicator}" />
+                <Label Margin="0, 0, 15, 0" VerticalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="л/(кв.м*с)"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+                <StackLayout Orientation="Vertical"  Margin="15, 0, 0, 0">
+                    <Label Text="Тушение производится" />
+                    <RadioButton x:Name="rbExtinguishingFront" FontSize="15" Value="ExtinguishingFront" Content="по фронту" CheckedChanged="OnRadioButtonCheckedChanged" />
+                    <RadioButton x:Name="rbExtinguishingPerimeter" FontSize="15"  Value="ExtinguishingPerimeter" Content="по периметру" CheckedChanged="OnRadioButtonCheckedChanged" />
+                </StackLayout>
+            
+               <StackLayout Orientation="Vertical" >
+               <Label Text="Расчет:" Margin="15, 0, 0, 0" />
+                <StackLayout Orientation="Horizontal" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Требуемый расход на тушение"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                        <local1:MyCustomEntry 
+                       x:Name="entryConsumptionExtinguishing"  
+                       Keyboard="Numeric"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       Text="{Binding ConsumptionExtinguishing}" />
+                    <Label  VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="л/с"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Требуемый расход на защиту"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                        <local1:MyCustomEntry 
+                       Keyboard="Numeric"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       Text="{Binding ConsumptionDefense}" />
+                    <Label VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="л/с"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="btnUpdate"
+                        Text="Расчет" BackgroundColor="Green" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                        Command="{Binding UpdateParamsCommand}" />
+                    <Button x:Name="btnSave"  
+                        Text="Назад" BackgroundColor="Red" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                         Clicked="BtnCancel_Clicked"
+                         />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

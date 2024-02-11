@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:FOHQ.Services" xmlns:local1="clr-namespace:EntryDecimal"
+             x:Class="FOHQ.Views.NewDocument.FilingMethodsPage"
+             Title="Методы подачи ОВ к месту пожара">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+            <Label Text="Методы подачи водоснабжения к месту пожара" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                <StackLayout Orientation="Vertical" Margin="15, 0, 0, 0">
+                    <RadioButton  x:Name="rbWaterSupplyMethod"  FontSize ="15" Content="Подвоз воды" 
+                                      CheckedChanged="OnMethodRadioButtonCheckedChanged"/>
+                    <StackLayout Orientation="Vertical" x:Name="panelWaterSupplyMethod">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Расстояние" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding Distance}">
+                            </local1:MyCustomEntry> 
+                            <Label Text="км." Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Скорость движения АЦ" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding TravelSpeed}" />
+                            <Label Text="км/ч" Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Объем цистерны" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding CisterneVolume}" />
+                            <Label Text="л." Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Средняя подача воды насосом" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding WaterMediumPumping}" />
+                            <Label Text="л/с" Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Расход воды по наиболее загруженной линии" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding LineWaterConsumption}" />
+                            <Label Text="л/с" Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <Label Text="Расчетные данные:" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Время следования" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding TravelTime}" />
+                            <Label Text="мин." Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Время заправки АЦ" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding RefuelingTime}" />
+                            <Label Text="мин." Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Время расхода воды от АЦ" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding WaterConsumptionTime}" />
+                            <Label Text="мин." Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Количество АЦ для подвоза" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding ACCount}" />
+                            <Label Text="ед." Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    <RadioButton  x:Name="rbWaterSupplyToPumpMethod" FontSize ="15" Content="Подача воды в перекачку" 
+                                      CheckedChanged="OnMethodRadioButtonCheckedChanged"/>
+                    <StackLayout Orientation="Vertical" x:Name="panelWaterSupplyToPumpMethod">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Напор на насосе" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <Picker x:Name="pickPressureOnPump" Title="выберите значение"
+                                                SelectedIndexChanged="Picker_SelectedPressureOnPump">
+                            </Picker>
+                            <Button x:Name="btnClearPressureOnPump" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                                Clicked="BtnClearPressureOnPump_OnClicked" />
+                            <Label Text="м.вод.ст." Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Высота подъема/спуска местности" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding AscentDescentHeight}" />
+                            <Label Text="м." Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <Picker x:Name="pickAscentDescentLocality" Margin="15, 0, 0, 0" Title="выберите значение"
+                                                 SelectedIndexChanged="Picker_SelectedAscentDescent">
+                            </Picker>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Высота подъема/спуска ствола" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding HeightLiftingLoweringTrunk}" />
+                            <Label Text="м." Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <Picker x:Name="pickAscentDescentTrunk" Margin="15, 0, 0, 0" Title="выберите значение"
+                                                 SelectedIndexChanged="Picker_SelectedAscentDescent">
+                            </Picker>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Расход воды по наиболее загруженной линии" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding LineWaterConsumption2}" />
+                            <Label Text="л/с" Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Расстояние до ИППВ" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding DistanceIPPV}" />
+                            <Label Text="м." Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <Label Text="Расчетные данные:" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Расстояние до головной ПА" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding DistanceMainPA}" />
+                            <Label Text="рук." Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Расстояние между ПА" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding DistanceBetweenPA}" />
+                            <Label Text="рук." Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Общее количество рукавов в магистральной линии" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding TotalNumberHoses}" />
+                            <Label Text="рук." Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Количество ступеней перекачки" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding NumberPumpingStages}" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Количество ПА для перекачки " Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding NumberPAForPumping}" />
+                            <Label Text="ед." Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Фактическое расстояние от ПА до разветвления" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                            <local1:MyCustomEntry Keyboard="Numeric" HorizontalOptions="FillAndExpand" MinimumWidthRequest="50"  ClearButtonVisibility="WhileEditing" Text="{Binding ActualDistanceFromPAToJunction}" />
+                            <Label Text="рук." Margin="0, 0, 15, 0"  VerticalOptions="Center" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                        <Button x:Name="btnUpdate"
+                        Text="Расчет" BackgroundColor="Green" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                        Command="{Binding UpdateParamsCommand}" />
+                        <Button x:Name="btnSave"  
+                        Text="Назад" BackgroundColor="Red" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                         Clicked="BtnCancel_Clicked"
+                         />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

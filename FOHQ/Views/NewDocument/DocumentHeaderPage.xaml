@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FOHQ.Views.NewDocument.DocumentHeaderPage"
+             Title="Документ">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <TableView VerticalOptions="Start">
+                <TableView.Root>
+                    <TableRoot>
+                        <TableSection Title="Документ">
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Время" Margin="15, 0, 0, 0" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                                        <DatePicker x:Name="dateDocument" Format="dd.MM.yyyy"
+                                                    Date="{Binding DocumentDate}" />
+                                        <TimePicker x:Name="timeDocument" Format="HH:mm"
+                                                    Time="{Binding DocumentTime}" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <EntryCell x:Name="txtDescription" Label="Описание"
+                                       Text="{Binding Description}" />
+                        </TableSection>
+                    </TableRoot>
+                </TableView.Root>
+            </TableView>
+
+            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                <ImageButton
+                    x:Name="btnCloseDocument"
+                    Source="close_document.png" BackgroundColor="Transparent"
+                    Margin="30, 30, 10, 30"
+                    HeightRequest="60" WidthRequest="60" HorizontalOptions="Start" 
+                    Clicked="BtnCloseDocument_Clicked"/>
+                <ImageButton
+                    x:Name="btnSaveDocument"
+                    Source="save_document.png" BackgroundColor="Transparent"
+                    Margin="10, 30, 10, 30"
+                    HeightRequest="60" WidthRequest="60" HorizontalOptions="Start" 
+                    Clicked="BtnSaveDocument_Clicked"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

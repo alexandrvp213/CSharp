@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FOHQ.Views.Main.ResponsibilitiesPage"
+             Title="ОБЯЗАННОСТИ ДОЛЖНОСТНЫХ ЛИЦ"
+             BackgroundImageSource="Background.jpg">
+    <ContentPage.Content>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnCommon" Text="Общие" Clicked="BtnCommon_Clicked" Grid.Row="0" Grid.Column="0" />
+            <Button x:Name="btnStaffChief" Text="Начальник штаба" Clicked="BtnStaffChief_Clicked" Grid.Row="0" Grid.Column="1" />
+            <Button x:Name="btnStaffDeputyChief" Text="Заместитель НШ" Clicked="BtnStaffDeputyChief_Clicked" Grid.Row="0" Grid.Column="2" />
+            <Button x:Name="btnLogisticsChief" Text="Начальник тыла" Clicked="BtnLogisticsChief_Clicked" Grid.Row="0" Grid.Column="3" />
+            <Button x:Name="btnCheckpointHead" Text="Начальник КПП ГДЗС" Clicked="BtnCheckpointHead_Clicked" Grid.Row="0" Grid.Column="4" />
+            <Button x:Name="btnLaborProtectionResponsible" Text="Ответственный по ОТ" Clicked="BtnLaborProtectionResponsible_Clicked" Grid.Row="0" Grid.Column="5" />
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

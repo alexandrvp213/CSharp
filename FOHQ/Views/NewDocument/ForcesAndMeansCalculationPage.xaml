@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FOHQ.Views.NewDocument.ForcesAndMeansCalculationPage"
+             Title="Расчёт СиС">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+            <StackLayout BackgroundColor="White">
+                <Label
+                    x:Name="lblTitle"  
+                    Text="РАСЧЕТ СИЛ и СРЕДСТВ" VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"/>
+                    <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" ColumnSpacing="0" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />                        
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                        <BoxView BackgroundColor="Gray"  Grid.Column="0"  Grid.Row="0"/>
+                        <Grid BackgroundColor="White" Margin="1" Grid.Column="0"  Grid.Row="0" >
+                            <StackLayout Orientation="Vertical"  >
+                                <Image  x:Name="BtnQuenching" HeightRequest="80" WidthRequest="60" 
+                    Source="quenching.png" BackgroundColor="White"
+                                 />
+                                <Button
+                    x:Name="BtnQuenching2" HeightRequest="90" WidthRequest="60"
+                    BackgroundColor="White" Text="тушение"
+                    Clicked="BtnQuenching_Clicked" />
+                            </StackLayout>
+                        </Grid>
+                        <BoxView BackgroundColor="Gray"   Grid.Column="1"  Grid.Row="0" />
+                        <Grid BackgroundColor="White" Margin="1" Grid.Column="1"  Grid.Row="0" >
+                            <StackLayout Orientation="Vertical"  >
+                                <Button HeightRequest="170" WidthRequest="60"
+                    x:Name="BtnRequiredConsumption"
+                    Text="требуемый расход на защиту и тушение" BackgroundColor="White"
+                    Clicked="BtnRequiredConsumption_Clicked" />
+                            </StackLayout>
+                        </Grid>
+                        <BoxView BackgroundColor="Gray" Grid.Column="2"  Grid.Row="0" />
+
+                        <Grid BackgroundColor="White" Margin="1" Grid.Column="2"  Grid.Row="0" >
+                            <StackLayout Orientation="Vertical" >
+                                <Image HeightRequest="80" WidthRequest="60"
+                    x:Name="BtnNumberOfDevices" 
+                    Source="number_of_devices.png" BackgroundColor="White"
+                     />
+                                <Button HeightRequest="90" WidthRequest="60"
+                    x:Name="BtnNumberOfDevices2" 
+                    BackgroundColor="White" Text="количество приборов" 
+                    Clicked="BtnNumberOfDevices_Clicked" />
+                            </StackLayout>
+                        </Grid>
+                        <BoxView BackgroundColor="Gray"  Grid.Column="3"  Grid.Row="0" />
+                        <Grid BackgroundColor="White" Margin="1" Grid.Column="3"  Grid.Row="0" >
+                            <StackLayout Orientation="Vertical" >
+                                <Image HeightRequest="80" WidthRequest="60"
+                    x:Name="BtnQuenchingSolution" 
+                    Source="quenching_solution.png" BackgroundColor="White"
+                     />
+                                <Button HeightRequest="90" WidthRequest="60"
+                    x:Name="BtnQuenchingSolution2"  
+                    BackgroundColor="White" Text="тушение ЛВЖ(ГЖ) по раствору"
+                    Clicked="BtnQuenchingSolution_Clicked" />
+                            </StackLayout>
+                        </Grid>
+                        <BoxView BackgroundColor="Gray"   Grid.Column="4"  Grid.Row="0"/>
+                        <Grid BackgroundColor="White" Margin="1" Grid.Column="4"  Grid.Row="0" >
+                            <StackLayout Orientation="Vertical"  >
+                                <Button HeightRequest="170" WidthRequest="60"
+                    x:Name="BtnFilingMethods" 
+                    Text="методы подачи ОВ к месту пожара" BackgroundColor="White"
+                    Clicked="BtnFilingMethods_Clicked" />
+                            </StackLayout>
+                        </Grid>
+
+                    </Grid>
+            
+            </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="btnSave" BackgroundColor="Green" TextColor="White" Text="Сохранить" 
+                            Clicked="BtnSave_Clicked" 
+                            Margin="8" HorizontalOptions="FillAndExpand"/>
+                    <Button x:Name="btnGenerateDocument" BackgroundColor="Green" TextColor="White" Text="Вывести в формат WORD" 
+                            Clicked="Btn_GenerateDocument" 
+                            Margin="8" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+        </StackLayout>
+            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

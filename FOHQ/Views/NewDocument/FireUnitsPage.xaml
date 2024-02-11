@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FOHQ.Views.NewDocument.FireUnitsPage"
+             Title="СиС тушения пожара (ЧС)">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <BoxView Grid.Column="0" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start" />
+                <BoxView Grid.Column="0" Color="Gray" WidthRequest="1" HorizontalOptions="Start" VerticalOptions="Fill" />
+                <Label Grid.Column="0" Text="Подразделения пожарной охраны, взаимодействующие службы" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                <BoxView Grid.Column="0" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+                <BoxView Grid.Column="0" Color="Gray" WidthRequest="1" HorizontalOptions="End" VerticalOptions="Fill" />
+
+                <BoxView Grid.Column="1" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start" />
+                <BoxView Grid.Column="1" Color="Gray" WidthRequest="1" HorizontalOptions="Start" VerticalOptions="Fill" />
+                <Label Grid.Column="1" Text="Время прибытия" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                <BoxView Grid.Column="1" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+                <BoxView Grid.Column="1" Color="Gray" WidthRequest="1" HorizontalOptions="End" VerticalOptions="Fill" />
+
+                <BoxView Grid.Column="2" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start" />
+                <BoxView Grid.Column="2" Color="Gray" WidthRequest="1" HorizontalOptions="Start" VerticalOptions="Fill" />
+                <Label Grid.Column="2" Text="Численность расчёта" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                <BoxView Grid.Column="2" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+                <BoxView Grid.Column="2" Color="Gray" WidthRequest="1" HorizontalOptions="End" VerticalOptions="Fill" />
+
+                <BoxView Grid.Column="3" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start" />
+                <BoxView Grid.Column="3" Color="Gray" WidthRequest="1" HorizontalOptions="Start" VerticalOptions="Fill" />
+                <Label Grid.Column="3" Text="Основная задача. Время получения" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                <BoxView Grid.Column="3" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+                <BoxView Grid.Column="3" Color="Gray" WidthRequest="1" HorizontalOptions="End" VerticalOptions="Fill" />
+
+                <BoxView Grid.Column="4" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start" />
+                <BoxView Grid.Column="4" Color="Gray" WidthRequest="1" HorizontalOptions="Start" VerticalOptions="Fill" />
+                <Label Grid.Column="4" Text="Боевой участок, номер" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                <BoxView Grid.Column="4" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+                <BoxView Grid.Column="4" Color="Gray" WidthRequest="1" HorizontalOptions="End" VerticalOptions="Fill" />
+
+                <BoxView Grid.Column="5" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start" />
+                <BoxView Grid.Column="5" Color="Gray" WidthRequest="1" HorizontalOptions="Start" VerticalOptions="Fill" />
+                <Label Grid.Column="5" Text="Время введения первого ствола" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                <BoxView Grid.Column="5" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+                <BoxView Grid.Column="5" Color="Gray" WidthRequest="1" HorizontalOptions="End" VerticalOptions="Fill" />
+
+                <BoxView Grid.Column="6" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start" />
+                <BoxView Grid.Column="6" Color="Gray" WidthRequest="1" HorizontalOptions="Start" VerticalOptions="Fill" />
+                <Label Grid.Column="6" Text="Время убытия с места пожара" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                <BoxView Grid.Column="6" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+                <BoxView Grid.Column="6" Color="Gray" WidthRequest="1" HorizontalOptions="End" VerticalOptions="Fill" />
+            </Grid>
+
+            <ListView x:Name="listFireUnits" ItemsSource="{Binding FireUnits}" HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid Margin="0" Padding="0" RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Margin="5" VerticalTextAlignment="Center"
+                                           Text="{Binding Departments}" />
+                                    <Label Grid.Column="1" Margin="5" VerticalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding ArrivalTime, StringFormat='{0:hh\\:mm}'}" />
+                                                <Span Text=" " />
+                                                <Span Text="{Binding ArrivalDate, StringFormat='{0:dd.MM.yyyy}'}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Column="2" Margin="5" VerticalTextAlignment="Center"
+                                           Text="{Binding Personnel}" />
+                                    <StackLayout Grid.Column="3" VerticalOptions="Start">
+                                        <Label Margin="5" VerticalTextAlignment="Center"
+                                               Text="{Binding MainTask}" />
+                                        <Label Margin="5" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding MainTaskTime, StringFormat='{0:hh\\:mm}'}" />
+                                                    <Span Text=" " />
+                                                    <Span Text="{Binding MainTaskDate, StringFormat='{0:dd.MM.yyyy}'}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="4" VerticalOptions="Start">
+                                        <Label Margin="5" VerticalTextAlignment="Center"
+                                               Text="{Binding WorkSector}" />
+                                        <Label Margin="5" VerticalTextAlignment="Center"
+                                               Text="{Binding CombatArea}" />
+                                    </StackLayout>
+                                    <Label Grid.Column="5" Margin="5" VerticalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding FirstBarrelTime, StringFormat='{0:hh\\:mm}'}" />
+                                                <Span Text=" " />
+                                                <Span Text="{Binding FirstBarrelDate, StringFormat='{0:dd.MM.yyyy}'}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Column="6" Margin="5" VerticalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding DepartureTime, StringFormat='{0:hh\\:mm}'}" />
+                                                <Span Text=" " />
+                                                <Span Text="{Binding DepartureDate, StringFormat='{0:dd.MM.yyyy}'}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+                            </ViewCell.View>
+
+                            <ViewCell.ContextActions>
+                                <MenuItem x:Name="itemEditFireUnits" Clicked="ItemEditFireUnits_Clicked"
+                                          CommandParameter="{Binding}"
+                                          Text="Изменить" />
+                                <MenuItem x:Name="itemDeleteFireUnits" Clicked="ItemDeleteFireUnits_Clicked"
+                                          CommandParameter="{Binding}"
+                                          Text="Удалить" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Grid HorizontalOptions="FillAndExpand" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <BoxView Grid.Column="0" Grid.ColumnSpan="2" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start" />
+                <BoxView Grid.Column="0" Grid.ColumnSpan="2" Color="Gray" WidthRequest="1" HorizontalOptions="Start" VerticalOptions="Fill" />
+                <Label Grid.Column="0" Grid.ColumnSpan="2" Text="Итого" Margin="8" HorizontalTextAlignment="End" VerticalTextAlignment="Center" />
+                <BoxView Grid.Column="0" Grid.ColumnSpan="2" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+                <BoxView Grid.Column="0" Grid.ColumnSpan="2" Color="Gray" WidthRequest="1" HorizontalOptions="End" VerticalOptions="Fill" />
+
+                <BoxView Grid.Column="2" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start" />
+                <BoxView Grid.Column="2" Color="Gray" WidthRequest="1" HorizontalOptions="Start" VerticalOptions="Fill" />
+                <Label x:Name="lblTotalPersonnel" Grid.Column="2" Text="" Margin="8" VerticalTextAlignment="Center" />
+                <BoxView Grid.Column="2" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+                <BoxView Grid.Column="2" Color="Gray" WidthRequest="1" HorizontalOptions="End" VerticalOptions="Fill" />
+
+                <BoxView Grid.Column="3" Grid.ColumnSpan="4" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start" />
+                <BoxView Grid.Column="3" Grid.ColumnSpan="4" Color="Gray" WidthRequest="1" HorizontalOptions="Start" VerticalOptions="Fill" />
+                <Label Grid.Column="3" Grid.ColumnSpan="4" Text="" Margin="8" VerticalTextAlignment="Center" />
+                <BoxView Grid.Column="3" Grid.ColumnSpan="4" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+                <BoxView Grid.Column="3" Grid.ColumnSpan="4" Color="Gray" WidthRequest="1" HorizontalOptions="End" VerticalOptions="Fill" />
+            </Grid>
+
+            <ImageButton
+                x:Name="btnAddFireForcesAndMeans"
+                Source="add_item.png" BackgroundColor="Transparent"
+                Margin="30"
+                HeightRequest="60" WidthRequest="60" HorizontalOptions="End" 
+                Clicked="BtnAddFireForcesAndMeans_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

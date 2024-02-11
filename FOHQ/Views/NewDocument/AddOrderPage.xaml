@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FOHQ.Views.NewDocument.AddOrdersPage"
+             Title="Распоряжения и информация по ТП">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <TableView>
+                <TableView.Root>
+                    <TableRoot>
+                        <TableSection Title="Распоряжения и информация по ТП">
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Время" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                                        <DatePicker x:Name="dateReceipt" Format="dd.MM.yyyy"
+                                                    Date="{Binding ReceiptDate}" />
+                                        <TimePicker x:Name="timeReceipt" Format="HH:mm"
+                                                    Time="{Binding ReceiptTime}" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Что передано"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickInformation" Title="выберите значение"
+                                                HorizontalOptions="FillAndExpand"
+                                                SelectedItem="{Binding Information}">
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Кому передано"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickRecipient" Title="выберите значение"
+                                                HorizontalOptions="FillAndExpand"
+                                                SelectedItem="{Binding Recipient}">
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Кто передал"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickSender" Title="выберите значение"
+                                                HorizontalOptions="FillAndExpand"
+                                                SelectedItem="{Binding Sender}">
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Кто принял"/>
+                                                    <Span Text=" *" TextColor="Red"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Picker x:Name="pickReceived" Title="выберите значение"
+                                                HorizontalOptions="FillAndExpand"
+                                                SelectedItem="{Binding Received}">
+                                        </Picker>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView.Root>
+            </TableView>
+
+            <StackLayout Orientation="Horizontal" >
+                <Button x:Name="btnCancel"
+                        Text="Отмена" BackgroundColor="DarkRed" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                        Clicked="BtnCancel_Clicked" />
+                <Button x:Name="btnSave"
+                        Text="Сохранить" BackgroundColor="Green" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                        Clicked="BtnSave_Clicked" />
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

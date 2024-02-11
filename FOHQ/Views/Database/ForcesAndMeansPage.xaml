@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FOHQ.Views.Database.ForcesAndMeansPage"
+             Title="Силы и средства">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Добавить" IconImageSource="ic_action_new.png" Clicked="BtnAddItem_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start" />
+                <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Color="Gray" WidthRequest="1" HorizontalOptions="Start" VerticalOptions="Fill" />
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Состав" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+                <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Color="Gray" WidthRequest="1" HorizontalOptions="End" VerticalOptions="Fill" />
+
+                <BoxView Grid.Row="1" Grid.Column="0" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start" />
+                <BoxView Grid.Row="1" Grid.Column="0" Color="Gray" WidthRequest="1" HorizontalOptions="Start" VerticalOptions="Fill" />
+                <Label Grid.Row="1" Grid.Column="0" Text="Вид техники" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                <BoxView Grid.Row="1" Grid.Column="0" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+                <BoxView Grid.Row="1" Grid.Column="0" Color="Gray" WidthRequest="1" HorizontalOptions="End" VerticalOptions="Fill" />
+
+                <BoxView Grid.Row="1" Grid.Column="1" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start" />
+                <BoxView Grid.Row="1" Grid.Column="1" Color="Gray" WidthRequest="1" HorizontalOptions="Start" VerticalOptions="Fill" />
+                <Label Grid.Row="1" Grid.Column="1" Text="Количество" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                <BoxView Grid.Row="1" Grid.Column="1" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+                <BoxView Grid.Row="1" Grid.Column="1" Color="Gray" WidthRequest="1" HorizontalOptions="End" VerticalOptions="Fill" />
+
+                <BoxView Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start" />
+                <BoxView Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Color="Gray" WidthRequest="1" HorizontalOptions="Start" VerticalOptions="Fill" />
+                <Label Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Text="Численность личного состава расчёта" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                <BoxView Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Color="Gray" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="End" />
+                <BoxView Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Color="Gray" WidthRequest="1" HorizontalOptions="End" VerticalOptions="Fill" />
+            </Grid>
+
+            <ListView x:Name="listItems" ItemsSource="{Binding}" HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid Margin="0" Padding="0" RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="1" Margin="5" VerticalTextAlignment="Center"
+                                           Text="{Binding Equipment}" />
+                                    <Label Grid.Column="2" Margin="5" VerticalTextAlignment="Center"
+                                           Text="{Binding Quantity}" />
+                                    <Label Grid.Column="3" Margin="5" VerticalTextAlignment="Center"
+                                           Text="{Binding Personnel}" />
+                                </Grid>
+                            </ViewCell.View>
+
+                            <ViewCell.ContextActions>
+                                <MenuItem x:Name="menuEditItem" Clicked="MenuEditItem_Clicked"
+                                          CommandParameter="{Binding}"
+                                          Text="Изменить" />
+                                <MenuItem x:Name="menuDeleteItem" Clicked="MenuDeleteItem_Clicked"
+                                          CommandParameter="{Binding}"
+                                          Text="Удалить" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

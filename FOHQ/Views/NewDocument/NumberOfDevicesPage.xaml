@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  xmlns:local1="clr-namespace:EntryDecimal"
+             x:Class="FOHQ.Views.NewDocument.NumberOfDevicesPage"
+             Title="Количество приборов">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Количество приборов подачи огнетушащих веществ" Margin="15, 0, 0, 0" VerticalTextAlignment="Center" />
+                <StackLayout Orientation="Vertical" >
+                    <StackLayout Orientation="Vertical" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Способы тушения:"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                        <StackLayout Orientation="Vertical"  Margin="15, 0, 0, 0" >
+                        <RadioButton x:Name="rbWater" FontSize="15"  Value="Water" Content="по воде" CheckedChanged="OnExtinguishingMethodRadioButtonCheckedChanged" />
+                            <RadioButton x:Name="rbFoam" FontSize="15"   Value="Foam" Content="по пене" CheckedChanged="OnExtinguishingMethodRadioButtonCheckedChanged" />
+                            <RadioButton x:Name="rbSurfaceQuenching" FontSize="15"  IsEnabled="False" Value="SurfaceQuenching" Content="поверхностное тушение" CheckedChanged="OnExtinguishingMethodRadioButtonCheckedChanged"  Margin="50,0" />
+                            <RadioButton x:Name="rbLVJ" FontSize="15"   Value="LVJ" IsEnabled="False" Content="ЛВЖ" CheckedChanged="OnExtinguishingMethodRadioButtonCheckedChanged"  Margin="140,0" />
+                            <RadioButton x:Name="rbGJ" FontSize="15"   Value="GJ" IsEnabled="False"  Content="ГЖ" CheckedChanged="OnExtinguishingMethodRadioButtonCheckedChanged"  Margin="140,0,0,0" />
+                            <RadioButton x:Name="rbBulkQuenching" FontSize="15"  IsEnabled="False"  Value="BulkQuenching" Content="объемное тушение" CheckedChanged="OnExtinguishingMethodRadioButtonCheckedChanged"  Margin="50,0,0,0" />
+                    </StackLayout>
+                        <StackLayout Orientation="Horizontal" >
+                        <Label Margin="85, 0, 0, 0" VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Объем помещения"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                            <local1:MyCustomEntry x:Name="entryVolume" 
+                       Keyboard="Numeric"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       Text="{Binding Volume}" />
+                        <Label Margin="0, 0, 15, 0" VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="м3"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+                
+                <StackLayout Orientation="Vertical" >
+
+                        <StackLayout Orientation="Horizontal" Margin="15, 0, 0, 0" >                        
+                        <StackLayout Orientation="Vertical" >
+                            <Label Margin="0, 0, 0, 0" VerticalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Водяные стволы"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <StackLayout Orientation="Horizontal" >
+                                <Picker x:Name="pickWaterBarrels" Title="выберите значение"
+                                                    SelectedIndexChanged="Picker_SelectedBarrel">
+                                </Picker>
+                                <Button x:Name="btnClearWaterBarrel" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                 Clicked="BtnClearBarrel_OnClicked" />
+                           </StackLayout>
+                        </StackLayout>
+                        
+                        <StackLayout Orientation="Vertical" >
+                            <Label Margin="0, 0, 0, 0" VerticalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Расход  1"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <StackLayout Orientation="Horizontal" >
+                                    <local1:MyCustomEntry x:Name="entryConsumption1"
+                                Keyboard="Numeric"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                Text="{Binding Consumption}" />
+                                <Label VerticalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="л/с"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+
+
+                        <StackLayout Orientation="Horizontal" Margin="15, 0, 0, 0"  >
+                        <StackLayout Orientation="Vertical" >
+                            <Label Margin="0, 0, 0, 0" VerticalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Пенные стволы"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <StackLayout Orientation="Horizontal" >
+                            <Picker x:Name="pickFoamBarrels" Title="выберите значение"
+                                                SelectedIndexChanged="Picker_SelectedBarrel">
+                            </Picker>
+                            <Button x:Name="btnClearFoamBarrel" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                             Clicked="BtnClearBarrel_OnClicked" />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" >
+                            <Label Margin="0, 0, 0, 0" VerticalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Расход  2"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <StackLayout Orientation="Horizontal" >
+                                    <local1:MyCustomEntry 
+                                Keyboard="Numeric"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"                                    
+                                IsReadOnly="True" Text="{Binding Consumption2}" />
+                                <Label VerticalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="л/с"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </StackLayout>
+                            <StackLayout Orientation="Vertical" >
+                                <Label Margin="0, 0, 0, 0" VerticalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Расход  по пене"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <StackLayout Orientation="Horizontal" >
+                                    <local1:MyCustomEntry 
+                                Keyboard="Numeric"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                IsReadOnly="True" Text="{Binding ConsumptionFoam}" />
+                                    <Label VerticalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="м3/мин"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Площадь тушения пенного ствола"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <local1:MyCustomEntry  x:Name="entryExtinguishingAreaFoamBarrel"
+                                Keyboard="Numeric"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                Text="{Binding ExtinguishingAreaFoamBarrel}" />
+                                <Label Margin="0, 0, 15, 0" VerticalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="м3"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                          </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Margin="15, 0, 0, 0"  >
+                            <StackLayout Orientation="Vertical" >
+                                <Label Margin="0, 0, 0, 0" VerticalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Стволы на защиту"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <StackLayout Orientation="Horizontal" >
+                                    <Picker x:Name="pickBarrelsForDefense" Title="выберите значение"
+                                                SelectedIndexChanged="Picker_SelectedBarrel">
+                                    </Picker>
+                                    <Button x:Name="btnClearBarrelsForDefense" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                             Clicked="BtnClearBarrel_OnClicked" />
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" >
+                                <Label Margin="0, 0, 0, 0" VerticalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Расход  3"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <StackLayout Orientation="Horizontal" >
+                                    <local1:MyCustomEntry 
+                                Keyboard="Numeric"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                IsReadOnly="True" Text="{Binding Consumption3}" />
+                                    <Label VerticalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="л/с"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>                    
+                    </StackLayout>
+            </StackLayout>
+
+                <StackLayout Orientation="Vertical" >
+                    <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Расчет:"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <StackLayout Orientation="Horizontal" >
+                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Требуемое количество приборов на тушение"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <local1:MyCustomEntry 
+                                Keyboard="Numeric"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                Text="{Binding CountExtinguishing}" />
+                   
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" >                
+                        <Label Margin="15, 0, 0, 0" VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Требуемое количество приборов на защиту"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <local1:MyCustomEntry 
+                                Keyboard="Numeric"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                Text="{Binding CountDefense}" />
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" >
+                    <RadioButton  x:Name="rbAltSolution1"  FontSize ="15" Content="Альтернативное решение" 
+                                      IsChecked="{Binding AlternativeSolution1, Mode=TwoWay}" CheckedChanged="OnAltSolutionRadioButtonCheckedChanged"/>
+                    <StackLayout x:Name="panelAltSolution1" Orientation="Vertical" Margin="15, 0, 0, 0" >
+                        <StackLayout Orientation="Horizontal" >
+                            <StackLayout Orientation="Vertical" >
+                            <Label Margin="0, 0, 0, 0" VerticalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Вид ствола"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                                <StackLayout Orientation="Horizontal" >
+                                    <Picker x:Name="pickExtinguishingBarrel1" Title="выберите значение"
+                                                    SelectedIndexChanged="Picker_SelectedBarrel">
+                            </Picker>
+                            <Button x:Name="btnClearExtBarrel1" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                 Clicked="BtnClearBarrel_OnClicked" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" >
+                                        <Picker x:Name="pickExtinguishingBarrel2" Title="выберите значение"
+                                                    SelectedIndexChanged="Picker_SelectedBarrel">
+                            </Picker>
+                            <Button x:Name="btnClearExtBarrel2" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                 Clicked="BtnClearBarrel_OnClicked" />
+                                    </StackLayout>
+                                </StackLayout>
+                        <StackLayout Orientation="Vertical" >
+                            <Label Margin="0, 0, 0, 0" VerticalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Количество"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                                <local1:MyCustomEntry 
+                                Keyboard="Numeric"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                Text="{Binding CountExtinguishingBarrel1}" />
+                                <local1:MyCustomEntry 
+                                Keyboard="Numeric"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                Text="{Binding CountExtinguishingBarrel2}" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" >
+                            <Label Margin="0, 0, 0, 0" VerticalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Итого"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                                <Button BackgroundColor="White"></Button>
+                                <local1:MyCustomEntry 
+                                Keyboard="Numeric"
+                                HorizontalOptions="FillAndExpand"
+                                Text="{Binding TotalCountExtinguishingBarrel}" />
+                        </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" >
+                    <RadioButton  x:Name="rbAltSolution2"  FontSize ="15" Content="Альтернативное решение" 
+                                      IsChecked="{Binding AlternativeSolution2, Mode=TwoWay}" CheckedChanged="OnAltSolutionRadioButtonCheckedChanged"/>
+                    <StackLayout x:Name="panelAltSolution2" Orientation="Vertical" Margin="15, 0, 0, 0" >
+                        <StackLayout Orientation="Horizontal" >
+                        <StackLayout Orientation="Vertical" >
+                            <Label Margin="0, 0, 0, 0" VerticalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Вид ствола"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                                <StackLayout Orientation="Horizontal" >
+                                    <Picker x:Name="pickDefenseBarrel1" Title="выберите значение"
+                                                    SelectedIndexChanged="Picker_SelectedBarrel">
+                            </Picker>
+                            <Button x:Name="btnClearDefBarrel1" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                 Clicked="BtnClearBarrel_OnClicked" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" >
+                            <Picker x:Name="pickDefenseBarrel2" Title="выберите значение"
+                                                    SelectedIndexChanged="Picker_SelectedBarrel">
+                            </Picker>
+                            <Button x:Name="btnClearDefBarrel2" ImageSource="clear_value.png" WidthRequest="40" HeightRequest="40"
+                                 Clicked="BtnClearBarrel_OnClicked" />
+                                </StackLayout>
+                            </StackLayout>
+                        <StackLayout Orientation="Vertical" >
+                            <Label Margin="0, 0, 0, 0" VerticalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Количество"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                                <local1:MyCustomEntry 
+                                Keyboard="Numeric"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                Text="{Binding CountDefenseBarrel1}" />
+                                <local1:MyCustomEntry 
+                                Keyboard="Numeric"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                Text="{Binding CountDefenseBarrel2}" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" >
+                            <Label Margin="0, 0, 0, 0" VerticalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Итого"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                                <Button BackgroundColor="White"></Button>
+                                <local1:MyCustomEntry 
+                                Keyboard="Numeric"
+                                HorizontalOptions="FillAndExpand"
+                                Text="{Binding TotalCountDefenseBarrel}" />
+                        </StackLayout>
+                    </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="btnUpdate"
+                        Text="Расчет" BackgroundColor="Green" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                        Clicked="BtnUpdate_Clicked" />
+                    <Button x:Name="btnSave"  
+                        Text="Назад" BackgroundColor="Red" TextColor="White" HorizontalOptions="FillAndExpand" Margin="8"
+                         Clicked="BtnCancel_Clicked"
+                         />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
